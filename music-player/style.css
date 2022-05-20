@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color:#8a2be2;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato',sans-serif;
+    margin: 0;
+}
+.music-container{
+    background-color: #efefef;
+    box-shadow: 0px 5px 5px #efefef;
+    border-radius: 20px;
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 10px;
+    z-index: 20;
+}
+.img-container{
+    position: relative;
+    width: 110px;
+}
+.img-container img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 110px;
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite; 
+    animation-play-state: paused;
+}
+.music-container.play .img-container img {
+    animation-play-state: running;
+  }
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg) ;
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.action-btn{
+    border: 0;
+    border-radius: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #efefef;
+    margin: 0 20px;
+}
+.action-btn .action-btn-big{
+    font-size: 30px;
+    outline: none;
+}
+.music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+    opacity: 0;
+    border-radius: 20px 20px 0 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+}
+  
+.music-container.play .music-info{
+    opacity: 1;
+    transform: translateY(-100%);
+}
+.title{
+    margin: 0;
+    color: black;
+    font-size: 20px;
+}
+.progress-container {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+.progress {
+    background-color: #fe8daa;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}  
